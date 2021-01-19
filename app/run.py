@@ -43,9 +43,12 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    cat_names = df.iloc[:,4:].columns
+    cat_count = (df.iloc[:,4:] ==1).sum().values
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
+            # Grpah1-Original Graph
         {
             'data': [
                 Bar(
@@ -61,6 +64,26 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+            # GRAPH 2 - category graph    
+        {
+            'data': [
+                Bar(
+                    x=cat_names,
+                    y=cat_count
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category",
+                    'tickangle': 45
                 }
             }
         }
