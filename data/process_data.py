@@ -23,8 +23,8 @@ def load_data(messages_filepath, categories_filepath):
         # set each value to be the last character of the string
         categories[column] = [val[-1] for val in categories[column] ]
     
-        # convert column from string to numeric
-        categories[column] = [ int(val) for val in categories[column]]
+        # convert column from string to binary
+        categories[column] = categories[column].apply(lambda x: 1 if int(x)>0 else 0)
     # drop the original categories column from `df`
     df.drop('categories',axis=1,inplace=True)
     # concatenate the original dataframe with the new `categories` dataframe
