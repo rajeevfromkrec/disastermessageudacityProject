@@ -7,22 +7,26 @@ The purpose of project is to build a model which can classify the messages and r
 ### Install
 This project requires Python 3.x and the following Python libraries to be installed:
 
-NumPy
-Pandas
-Matplotlib
-Json
-Plotly
-Nltk
-Flask
-Sklearn
-Sqlalchemy
+NumPy,
+Pandas,
+Matplotlib,
+Json,
+Plotly,
+Nltk,
+Flask,
+Sklearn,
+Sqlalchemy,
 Pickle
 
 ### files
 process_data.py: This code process csvfile ( messages.csv and categories.csv  ) and uploades data into a SQLite database containing a merged and cleased version of this data.
+
 train_classifier.py: This file takes the processed data in SQLite as input and then fits data into classifier. This code predicts the classes for test data and then provides a classification report. This code deumps the model weights into a classifier.pkl file.
+
 run.py: This file contains codes for running Flask application and to build graphs (visualization) on web. This file also has code which recieves the user input and converts that into tokens to be provided to trained model and get the predicted classes as output and shown on webapp.
+
 ETL Pipeline Preparation.ipynb: This file was used for the initia analysis of input data files and then building the skeleton for ETL pipeline.
+
 ML Pipeline Preparation.ipynb: This file was used for building skeletn of classifier pipeline. 
 
 
